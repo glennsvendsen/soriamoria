@@ -1,51 +1,187 @@
 <!doctype html>
 <html lang="nb"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Soria Moria – eventyr som barn kan lese, lytte til og leke i</title>
-<meta name="description" content="Soria Moria er en eventyrbok for iPad og iPhone med de gamle norske eventyrene: fortellerstemme, ord som lyser og tegnede verdener. Ingen reklame, ingen sporing.">
-<meta property="og:title" content="Soria Moria – norske eventyr for barn"><meta property="og:image" content="https://glennsvendsen.github.io/soriamoria/media/bukkene.jpg">
-<link rel="icon" href="media/icon.jpg"><link rel="stylesheet" href="style.css"></head><body>
-<nav><a class="lang" href="#top">Soria Moria</a><a href="#eventyr">Eventyr</a><a href="#foreldre">For foreldre</a><a href="#spill">Lek</a><a href="personvern/">Personvern</a><a href="support/">Hjelp</a></nav>
-<header class="hero" id="top"><div class="in">
-<h1>Soria Moria</h1>
-<p>De gamle norske eventyrene, fortalt høyt og levende på iPad og iPhone. Trykk, lytt og bli med inn i skogen.</p>
-<a class="btn" href="#eventyr">Møt eventyrene</a> <i class="nut" data-i="1" title="Gullnøtt!">🌰</i>
-<p id="say" style="min-height:2rem;margin-top:1rem;font-style:italic"></p></div>
-<div class="mist"></div><div class="mist b"></div>
-<div class="bridge"><div class="eyes" title="Trykk på trollet"><i></i><i></i></div></div>
+<title>Soria Moria – norske eventyr som lærer barn å lese</title>
+<meta name="description" content="De gamle norske eventyrene til Asbjørnsen og Moe, fortalt høyt på iPad og iPhone. Ordene lyser mens de leses, og barna leker seg gjennom hver side. Første eventyr gratis. Ingen reklame.">
+<meta property="og:title" content="Soria Moria – norske eventyr som lærer barn å lese">
+<meta property="og:description" content="Fortelleren leser, ordene lyser, og barna blir glade i å lese. De tre bukkene Bruse er gratis.">
+<meta property="og:image" content="https://glennsvendsen.github.io/soriamoria/media/hero.jpg">
+<meta name="theme-color" content="#0f1424">
+<link rel="icon" href="media/icon.jpg"><link rel="apple-touch-icon" href="media/icon.jpg"><link rel="stylesheet" href="style.css"></head>
+<body class="home">
+
+<!-- drawings used around the page -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+ <symbol id="goat" viewBox="0 0 120 100">
+  <path d="M22 47 13 37l3 15z"/>
+  <ellipse cx="54" cy="56" rx="34" ry="19"/>
+  <path d="M76 50 90 27l10 6-12 24z"/>
+  <ellipse cx="99" cy="31" rx="13" ry="8.5" transform="rotate(24 99 31)"/>
+  <path d="M104 37 101 52l-6-14z"/>
+  <path d="M90 25c-3-14-15-17-21-9" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+  <path d="M90 28 82 30l5-6z"/>
+  <g class="lf"><rect x="70" y="66" width="6" height="28" rx="3"/><rect x="30" y="66" width="6" height="28" rx="3"/></g>
+  <g class="lb"><rect x="61" y="66" width="6" height="28" rx="3"/><rect x="39" y="66" width="6" height="28" rx="3"/></g>
+ </symbol>
+ <symbol id="nutsym" viewBox="0 0 40 46">
+  <defs><radialGradient id="ng" cx=".35" cy=".35"><stop offset="0" stop-color="#fff3b0"/><stop offset=".45" stop-color="#f2b53a"/><stop offset="1" stop-color="#9b5b12"/></radialGradient></defs>
+  <ellipse cx="20" cy="28" rx="15" ry="16" fill="url(#ng)"/><path d="M5 20c2-10 28-10 30 0-6 3-24 3-30 0z" fill="#7a4612"/><path d="M20 10v-7" stroke="#7a4612" stroke-width="3" stroke-linecap="round"/>
+ </symbol>
+ <symbol id="castle" viewBox="0 0 64 48">
+  <path d="M2 48V32h5V22l5-9 5 9v10h6V16l9-14 9 14v16h6V22l5-9 5 9v10h5v16H37V38a5 5 0 0 0-10 0v10z"/>
+ </symbol>
+ <symbol id="orn" viewBox="0 0 240 24">
+  <path d="M0 12h92M148 12h92" stroke="currentColor" stroke-width="1.5"/>
+  <path d="M120 2c6 6 6 14 0 20-6-6-6-14 0-20zM104 12c6-5 12-5 16 0-4 5-10 5-16 0zm32 0c-6-5-12-5-16 0 4 5 10 5 16 0z" fill="currentColor"/>
+  <circle cx="96" cy="12" r="2.5" fill="currentColor"/><circle cx="144" cy="12" r="2.5" fill="currentColor"/>
+ </symbol>
+</svg>
+
+<nav id="nav"><a class="logo" href="#top"><svg><use href="#castle"/></svg>Soria Moria</a>
+<a href="#lesing">Lesing</a><a href="#tradisjon">Tradisjon</a><a href="#eventyr">Eventyrene</a><a href="#foreldre">For foreldre</a>
+<a class="cta store" href="#last-ned">Last ned gratis</a></nav>
+
+<header class="hero" id="top">
+ <div class="bg" id="herobg"></div>
+ <div class="mist"></div><div class="mist b"></div>
+ <button class="trollspot" id="trollspot" aria-label="Trykk på trollet"></button>
+ <div class="bubble" id="bubble">Hvem er det som tripper på MIN bro?!</div>
+ <div class="in">
+  <p class="eyebrow">Asbjørnsen og Moe · iPad og iPhone · 3–8 år</p>
+  <h1>Eventyrene som lærer barna <em>å lese</em></h1>
+  <p class="lead">Fortelleren leser høyt, ordene lyser i takt med stemmen, og hver side er en verden barna kan trykke, utforske og le av. De norske folkeeventyrene, levende som aldri før.</p>
+  <div class="ctas"><a class="btn gold store" href="#last-ned"><span class="big">Last ned gratis</span><span class="small">De tre bukkene Bruse</span></a>
+  <a class="btn ghost" href="#lesing">Slik lærer de å lese ↓</a></div>
+  <ul class="trust"><li>Første eventyr gratis</li><li>Ingen reklame</li><li>Ingen sporing</li><li>Virker uten nett</li></ul>
+ </div>
+ <i class="nut" data-i="1" style="right:7%;top:30%" title="En gullnøtt!"><svg><use href="#nutsym"/></svg></i>
 </header>
 
-<section class="paper" id="eventyr"><div class="wrap">
-<h2>Tre eventyr, og flere på vei</h2>
-<p>Trykk på et kort for å snu det. <i class="nut" data-i="2">🌰</i></p>
-<div class="cards">
-<button class="card"><div class="f front"><img src="media/bukkene.jpg" alt="De tre bukkene Bruse møter trollet under brua"><div class="t"><b>De tre bukkene Bruse</b><span class="tag">GRATIS · levende 3D</span></div></div><div class="f back"><b>Tripp trapp over brua</b><p>Tre bukker skal til setra, men under brua bor et troll med øyne som tallerkener. Stang trollet utfor fossen! Gratis for alle.</p></div></button>
-<button class="card"><div class="f front"><img src="media/nokken.jpg" alt="Nøkken ved vannet"><div class="t"><b>Nøkken</b><span class="tag">Med Alle eventyr</span></div></div><div class="f back"><b>Spill for fossen</b><p>Fiolinen lokker fra vannet. Hjelp gutten å lære nøkkens strengeleik, og tell vedkubbene underveis.</p></div></button>
-<button class="card"><div class="f front"><img src="media/askeladden.jpg" alt="Askeladden og trollet"><div class="t"><b>Askeladden som kappåt med trollet</b><span class="tag">Med Alle eventyr</span></div></div><div class="f back"><b>Gutten som turte</b><p>Askeladden er smartere enn trollet. Brutalt og morsomt, akkurat slik Asbjørnsen og Moe skrev det.</p></div></button>
-</div></div></section>
+<section class="bridge-band" id="tripp" aria-label="Tripp trapp over brua">
+ <p class="tt" id="tt"><span>Tripp</span> <span>trapp,</span> <span>tripp</span> <span>trapp…</span></p>
+ <div class="bridge-scene">
+  <div class="goats" id="goats">
+   <svg class="goat g1"><use href="#goat"/></svg><svg class="goat g2"><use href="#goat"/></svg><svg class="goat g3"><use href="#goat"/></svg>
+  </div>
+  <div class="deck"></div><div class="posts"></div>
+  <div class="trollhead" id="trollhead"><div class="te"><i></i><i></i></div><div class="tn"></div></div>
+ </div>
+ <p class="tt-sub">Rull nedover og se bukkene gå over brua.</p>
+</section>
 
-<section class="paper alt" id="foreldre"><div class="wrap">
-<h2>Trygt for barn. Godt for foreldre.</h2>
-<div class="grid3">
-<div class="tile"><b>Fortelleren leser</b>Hele eventyret leses høyt, og boka blar selv. Perfekt til leggetid.</div>
-<div class="tile"><b>Ordene lyser</b>Barna følger teksten mens den leses, og knekker lesekoden på lekende vis.</div>
-<div class="tile"><b>Ingen reklame</b>Ingen annonser, ingen sporing, ingen konto og ingen abonnement.</div>
-<div class="tile"><b>Virker uten nett</b>I bilen, på hytta og på flyet. Alt ligger i appen.</div>
-<div class="tile"><b>Foreldrelås</b>Innstillinger og kjøp ligger bak en voksenport.</div>
-<div class="tile"><b>Ett kjøp</b>«Alle eventyr» er et engangskjøp, ikke abonnement. Gjenopprettes på dine andre enheter.</div>
-</div>
-<h2 style="margin-top:2.5rem">Ofte stilte spørsmål</h2>
-<details><summary>Hvilken alder passer det for?</summary><p>Appen er laget for barn fra ca. 3 til 8 år. Eventyrene følger originalteksten til Asbjørnsen og Moe, og trollene får det de fortjener. Les gjerne sammen første gang.</p></details>
-<details><summary>Hva er gratis?</summary><p>«De tre bukkene Bruse» er gratis. «Alle eventyr» låser opp Nøkken, Askeladden og alle nye eventyr som kommer.</p></details>
-<details><summary>Samler dere inn data om barna?</summary><p>Nei. Appen har ingen analyse, ingen reklame og ingen tredjepartstjenester. Les <a href="personvern/">personvernerklæringen</a>.</p></details>
-<details><summary>Hvordan gjenoppretter jeg kjøpet?</summary><p>Åpne innstillinger via voksenporten og trykk «Gjenopprett kjøp».</p></details>
+<section class="paper" id="lesing"><div class="wrap">
+ <p class="kicker">Leselyst</p>
+ <h2>Her blir barna glade i å lese, uten at de merker det</h2>
+ <p class="intro">Barn lærer å lese når lyden og bokstavene møtes. I Soria Moria skjer det av seg selv: hvert ord lyser idet fortelleren sier det, og barna følger med, side for side, eventyr for eventyr.</p>
+ <div class="readdemo">
+  <div class="page">
+   <p class="rtext" id="rtext">«Hvem er det som tripper på brua mi?» skrek trollet. «Å, det er den minste bukken Bruse, og jeg skal til seters og gjøre meg fet.»</p>
+   <div class="rbar"><button class="btn gold sm" id="rplay">▶ Les for meg</button><span>…eller trykk på et ord</span></div>
+  </div>
+  <ol class="steps">
+   <li><b>Ordene lyser i takt</b>Barna ser hvordan lyd blir til bokstaver, og bokstaver til ord.</li>
+   <li><b>Trykk på et ord</b>og hør det igjen. Så mange ganger barnet vil.</li>
+   <li><b>Rytme og gjentakelse</b>«Tripp trapp, tripp trapp» gjør det lett å lese med, og etter hvert å lese selv.</li>
+   <li><b>Lyst til én side til</b>Gullnøtter og klistremerker på hver side holder motivasjonen oppe.</li>
+  </ol>
+ </div>
+ <div class="quote"><svg class="orn"><use href="#orn"/></svg><p>Høytlesing gir større ordforråd, bedre språkforståelse og lyst til å lese selv. Soria Moria gjør høytlesingen til en lek, også de kveldene du er for trett til å lese.</p></div>
 </div></section>
 
-<section class="dark" id="spill"><div class="wrap game"><h2>Stang trollet!</h2>
-<p>Trykk på den store bukken. <i class="nut" data-i="3">🌰</i></p>
-<div style="font-size:4.5rem"><span id="troll">👹</span> <button id="butt" aria-label="Stang trollet">🐐</button></div><p id="score"></p>
-<p>Fant du alle fem gullnøttene på siden? <i class="nut" data-i="4">🌰</i></p></div></section>
+<section class="tradition" id="tradisjon"><div class="wrap">
+ <div class="tr-text">
+  <p class="kicker light">Kulturarv</p>
+  <h2>Eventyrene du selv vokste opp med</h2>
+  <p>For snart 200 år siden reiste Peter Christen Asbjørnsen og Jørgen Moe rundt i Norge og skrev ned eventyrene folk fortalte hverandre ved peisen. Trollene, nøkken og Askeladden ble en del av hvem vi er.</p>
+  <p>Soria Moria tar vare på originalteksten, med sin rytme og sine gamle ord, og gir den nytt liv for en generasjon som vokser opp med skjerm. Slik blir skjermtiden kulturarv.</p>
+  <ul class="facts"><li><b>1841</b>Den første samlingen av norske folkeeventyr kommer ut</li><li><b>Originalteksten</b>Slik Asbjørnsen og Moe skrev det, også når trollet får det det fortjener</li><li><b>I dag</b>Lest høyt, tegnet og levende, på norsk</li></ul>
+ </div>
+ <figure class="tr-pic"><img src="media/nokken.jpg" alt="Nøkken i det mørke vannet" loading="lazy"><figcaption>«Nøkken»</figcaption></figure>
+ <i class="nut" data-i="2" style="left:3%;bottom:10%"><svg><use href="#nutsym"/></svg></i>
+</div></section>
 
-<footer><div class="wrap"><p>Laget med kjærlighet til de gamle norske eventyrene. <i class="nut" data-i="5">🌰</i></p>
-<p><a href="personvern/">Personvern</a> · <a href="support/">Hjelp og kontakt</a> · <a href="https://glennsvendsen.github.io/">Glenn Svendsen</a></p>
-<p>Eventyrtekstene er av Asbjørnsen og Moe (fri i det offentlige). iPhone og iPad er varemerker for Apple Inc.</p></div></footer>
-<div id="nut"></div><script src="main.js"></script></body></html>
+<section class="paper alt" id="eventyr"><div class="wrap">
+ <p class="kicker">Eventyrene</p>
+ <h2>Tre eventyr i dag. Flere på vei.</h2>
+ <p class="intro">Trykk på et kort for å snu det.</p>
+ <div class="cards">
+  <button class="card"><div class="f front"><img src="media/bukkene.jpg" alt="De tre bukkene Bruse" loading="lazy"><span class="badge free">Gratis</span><div class="t"><b>De tre bukkene Bruse</b><span>Levende 3D · 12 sider</span></div></div>
+   <div class="f back"><b>Tripp trapp over brua</b><p>Tre bukker skal til setra, men under brua bor et troll med øyne som tallerkener. Hjelp den store bukken å stange trollet utfor fossen!</p><span class="badge free">Gratis for alle</span></div></button>
+  <button class="card"><div class="f front"><img src="media/nokken.jpg" alt="Nøkken ved vannet" loading="lazy"><div class="t"><b>Nøkken</b><span>16 sider</span></div></div>
+   <div class="f back"><b>Fela fra det mørke vannet</b><p>Nøkken lokker med musikken sin. Spill tonene hans tilbake, tell vedkubbene og finn gullnøttene langs vannet.</p><span class="badge">Alle eventyr</span></div></button>
+  <button class="card"><div class="f front"><img src="media/askeladden.jpg" alt="Askeladden og trollet" loading="lazy"><div class="t"><b>Askeladden som kappåt med trollet</b><span>14 sider</span></div></div>
+   <div class="f back"><b>Gutten som lurte trollet</b><p>Askeladden er minst, men smartest. Klem vannet ut av osten og vinn kappåtet, akkurat slik det står i boka.</p><span class="badge">Alle eventyr</span></div></button>
+  <div class="card soon"><div class="f front"><img src="media/reveenka.jpg" alt="Reveenka, kommer snart" loading="lazy"><div class="t"><b>Reveenka</b><span>Kommer snart</span></div></div></div>
+ </div>
+</div></section>
+
+<section class="shots" id="bilder"><div class="wrap">
+ <p class="kicker light">Inne i boka</p><h2>Hver side er en liten verden</h2>
+ <p class="intro light">Trykk på trollet, se fisken hoppe, stang trollet utfor fossen. Barna oppdager noe nytt hver gang de leser.</p>
+</div>
+ <div class="rail" id="rail">
+  <figure><div class="dev"><img src="media/shots/read.jpg" alt="Tekst som lyser mens den leses" loading="lazy"></div><figcaption>Ordene lyser mens de leses</figcaption></figure>
+  <figure><div class="dev"><img src="media/shots/troll.jpg" alt="Trollet under brua" loading="lazy"></div><figcaption>Øyne så store som tallerkener</figcaption></figure>
+  <figure><div class="dev"><img src="media/shots/duel.jpg" alt="Den store bukken møter trollet" loading="lazy"></div><figcaption>Stang trollet utfor fossen!</figcaption></figure>
+  <figure><div class="dev"><img src="media/shots/nuts.jpg" alt="Gullnøtter å finne" loading="lazy"></div><figcaption>En gullnøtt på hver side</figcaption></figure>
+  <figure><div class="dev"><img src="media/shots/bridge.jpg" alt="Brua over fossen" loading="lazy"></div><figcaption>Tripp trapp, tripp trapp</figcaption></figure>
+  <figure><div class="dev"><img src="media/shots/seter.jpg" alt="Bukkene på setra" loading="lazy"></div><figcaption>…og så ble de så fete</figcaption></figure>
+ </div>
+ <div class="railnav"><button id="rprev" aria-label="Forrige">‹</button><button id="rnext" aria-label="Neste">›</button></div>
+</section>
+
+<section class="paper" id="foreldre"><div class="wrap">
+ <p class="kicker">For foreldre</p>
+ <h2>Trygt for barn. Godt for foreldre.</h2>
+ <div class="grid3">
+  <div class="tile"><svg viewBox="0 0 24 24"><path d="M4 5h7a3 3 0 0 1 3 3v12a2 2 0 0 0-2-2H4zM20 5h-4a2 2 0 0 0-2 2"/></svg><b>Les for meg</b>Fortelleren leser hele eventyret og blar selv. Perfekt til leggetid og bilturer.</div>
+  <div class="tile"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/></svg><b>Ingen reklame</b>Ingen annonser, ingen sporing, ingen konto. Vi samler ikke inn noe.</div>
+  <div class="tile"><svg viewBox="0 0 24 24"><path d="M2 9a15 15 0 0 1 20 0M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0"/><path d="M3 3l18 18"/></svg><b>Virker uten nett</b>I bilen, på hytta og på flyet. Alt ligger i appen.</div>
+  <div class="tile"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><b>Voksenport</b>Innstillinger og kjøp ligger bak et lite regnestykke for voksne.</div>
+  <div class="tile"><svg viewBox="0 0 24 24"><path d="M20 14A8 8 0 1 1 10 4a6 6 0 0 0 10 10z"/></svg><b>God natt-modus</b>Sovetimer som avslutter kvelden rolig, uten mas om én side til.</div>
+  <div class="tile"><svg viewBox="0 0 24 24"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg><b>Laget for 3–8 år</b>Store knapper, tydelige hint og lek som passer små fingre.</div>
+ </div>
+
+ <div class="pricing" id="pris">
+  <div class="plan"><p class="pk">Gratis</p><h3>De tre bukkene Bruse</h3><ul><li>Hele eventyret i levende 3D</li><li>Fortellerstemme og ord som lyser</li><li>Gullnøtter og klistremerker</li></ul></div>
+  <div class="plan best"><p class="pk">Ett engangskjøp</p><h3>Alle eventyr</h3><ul><li>Nøkken og Askeladden</li><li>Alle nye eventyr når de kommer</li><li>Ikke abonnement, aldri reklame</li><li>Gjenopprettes på familiens enheter</li></ul></div>
+ </div>
+
+ <h2 class="faqh">Ofte stilte spørsmål</h2>
+ <details><summary>Hvilken alder passer det for?</summary><p>Appen er laget for barn fra ca. 3 til 8 år. De minste lytter og leker, de eldste leser med og etter hvert selv. Eventyrene følger originalteksten til Asbjørnsen og Moe, og trollene får det de fortjener, så les gjerne sammen første gang.</p></details>
+ <details><summary>Hjelper det virkelig barna å lese?</summary><p>Soria Moria erstatter ikke deg, men den gir barna mange flere møter med skrevne ord. Når ordet lyser idet det blir sagt, kobler barna lyd og bokstav. Gjentakelsene i eventyrene gjør at de snart leser med selv.</p></details>
+ <details><summary>Hva er gratis, og hva koster resten?</summary><p>«De tre bukkene Bruse» er gratis. «Alle eventyr» er et engangskjøp som åpner Nøkken, Askeladden og alle nye eventyr som kommer. Prisen ser du i App Store.</p></details>
+ <details><summary>Samler dere inn data om barna?</summary><p>Nei. Appen har ingen analyse, ingen reklame og ingen tredjepartstjenester. Les <a href="personvern/">personvernerklæringen</a>.</p></details>
+ <details><summary>Hvordan gjenoppretter jeg kjøpet?</summary><p>Åpne innstillingene via voksenporten og trykk «Gjenopprett kjøp». Bruk samme Apple-konto som ved kjøpet.</p></details>
+ <i class="nut" data-i="3" style="right:2%;top:46%"><svg><use href="#nutsym"/></svg></i>
+</div></section>
+
+<section class="game" id="spill"><div class="wrap">
+ <p class="kicker light">Prøv selv</p><h2>Stang trollet utfor fossen!</h2>
+ <p class="intro light">Trykk på den store bukken tre ganger.</p>
+ <div class="arena" id="arena">
+  <div class="g-bridge"></div>
+  <div class="g-troll" id="gtroll"><div class="gh"><div class="ge"><i></i><i></i></div><div class="gn"></div><div class="gm"></div></div><div class="gb"></div></div>
+  <button class="g-goat" id="ggoat" aria-label="Den store bukken"><svg><use href="#goat"/></svg></button>
+  <div class="g-water"></div><div class="splash" id="splash"></div>
+  <p class="g-msg" id="gmsg"></p>
+ </div>
+ <p class="score" id="score"></p>
+ <i class="nut" data-i="4" style="left:6%;top:18%"><svg><use href="#nutsym"/></svg></i>
+</div></section>
+
+<section class="finale" id="last-ned"><div class="aurora"></div><div class="wrap">
+ <svg class="castle-big"><use href="#castle"/></svg>
+ <h2>Snipp snapp snute, her begynner eventyret!</h2>
+ <p>Last ned Soria Moria og les «De tre bukkene Bruse» gratis i kveld.</p>
+ <a class="btn gold store" href="#last-ned"><span class="big">Last ned gratis</span><span class="small">iPad og iPhone</span></a>
+ <p class="small-note" id="storenote">Kommer snart til App Store.</p>
+ <i class="nut" data-i="5" style="right:12%;bottom:22%"><svg><use href="#nutsym"/></svg></i>
+</div></section>
+
+<footer><div class="wrap">
+ <p><a href="personvern/">Personvern</a> · <a href="support/">Hjelp og kontakt</a> · <a href="mailto:glennsvends1@gmail.com">glennsvends1@gmail.com</a></p>
+ <p class="fine">Eventyrtekstene er av P. Chr. Asbjørnsen og Jørgen Moe. iPhone og iPad er varemerker for Apple Inc. Laget med kjærlighet til de gamle norske eventyrene.</p>
+</div></footer>
+
+<div id="hud" aria-live="polite"></div>
+<script src="main.js"></script></body></html>
