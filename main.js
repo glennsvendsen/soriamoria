@@ -8,7 +8,7 @@ document.querySelectorAll('.nut').forEach(n=>{if(localStorage.getItem('n'+n.data
  if(found>=5)document.querySelector('.hero p').textContent='Du fant alle gullnøttene! Barna dine ville vært stolte.'})});
 // troll eyes follow cursor, grumble on click
 const eyes=document.querySelector('.eyes');
-if(eyes){addEventListener('pointermove',e=>{const r=eyes.getBoundingClientRect(),dx=(e.clientX-r.left)/innerWidth-.5;eyes.style.transform='translateX(calc(-50% + '+dx*30+'px))'});
+if(eyes){addEventListener('pointermove',e=>{const r=eyes.getBoundingClientRect(),dx=(e.clientX-r.left)/innerWidth-.5;eyes.querySelectorAll('i').forEach(i=>i.style.setProperty('--px',dx*10+'px'))});
  eyes.addEventListener('click',()=>{const t=document.getElementById('say');if(t){t.textContent='«Hvem er det som tripper på MIN bro?!»';setTimeout(()=>t.textContent='',2500)}})}
 // butt game
 const g=document.getElementById('butt'),tr=document.getElementById('troll');let hits=0;
